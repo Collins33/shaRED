@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.root.shared">
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
         android:allowBackup="true"
@@ -10,22 +11,24 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
-        <activity android:name=".Sign_up" />
+
         <activity android:name=".Sign_in" />
         <activity android:name=".Profile_activity" />
         <activity android:name=".Dashboard_activity" />
         <activity android:name=".Appointment_activity" />
         <activity android:name=".Hospitals_activity" />
         <activity android:name=".Request_activity" />
-        <activity android:name=".Account_activity" />
         <activity android:name=".Notification_activity" />
-        <activity android:name=".Map_activity"></activity>
+        <activity android:name=".Map_activity"/>
+            <activity android:name=".Sign_up">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+           </activity>
     </application>
 
 </manifest>
