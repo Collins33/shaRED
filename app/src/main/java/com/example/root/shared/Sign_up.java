@@ -1,5 +1,6 @@
 package com.example.root.shared;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -27,6 +28,8 @@ public class Sign_up extends AppCompatActivity implements View.OnClickListener{
     @Bind(R.id.confirmPasswordEditText) EditText mConfirmPasswordEditText;
     @Bind(R.id.loginTextView) TextView mLogIn;
 
+    private ProgressDialog mDialog;
+
     //firebase authentication object
     private FirebaseAuth mAuth;
     public static final String TAG = Sign_up.class.getSimpleName();
@@ -36,10 +39,18 @@ public class Sign_up extends AppCompatActivity implements View.OnClickListener{
         setContentView(R.layout.activity_sign_up);
         ButterKnife.bind(this);
 
+        createProgressDialog();
         mLogIn.setOnClickListener(this);
         mCreateUserButton.setOnClickListener(this);
         //get instance of firebase authentication
         mAuth=FirebaseAuth.getInstance();
+    }
+    //create the progress dialog
+    public void createProgressDialog(){
+        mDialog=new ProgressDialog(this);
+        mDialog.setTitle("LOADING....");
+        mDialog.setMessage("Authenticating account");
+        mDialog.setCancelable(false);
     }
     //on click listener
     @Override
@@ -96,11 +107,13 @@ public class Sign_up extends AppCompatActivity implements View.OnClickListener{
         boolean validPassword = isValidPassword(password, confirmPassword);
         //check if credentials are right
         if (!validEmail || !validName || !validPassword) return;
+        mDialog.show();
 
         //method to get email and password
         mAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
+                mDialog.dismiss();
              if(task.isSuccessful()){
                  //check if authentication was successful
                  Log.d(TAG, "Authentication successful");
