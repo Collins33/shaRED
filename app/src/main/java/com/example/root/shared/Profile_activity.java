@@ -1,53 +1,88 @@
 package com.example.root.shared;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.example.root.shared.models.Accounts;
+import com.example.root.shared.models.Account;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class Profile_activity extends AppCompatActivity implements View.OnClickListener {
-    @Bind(R.id.nameEditView) EditText mNameEditView;
-    @Bind(R.id.dateOfBirthView) EditText mDateOfBirthView;
-    @Bind(R.id.sexEditView) EditText mSexEditView;
-    @Bind(R.id.bloodTypeEditView) EditText mBloodTypeEditView;
-    @Bind(R.id.residenceEditView) EditText mResidenceEditView;
-    @Bind(R.id.emailEditView) EditText mEmailEditView;
-    @Bind(R.id.submitAccount) Button mSubmitAccount;
+import static android.R.id.list;
+import static com.example.root.shared.R.id.spinnerViewOne;
 
-    Accounts account;
+public class Profile_activity extends AppCompatActivity implements View.OnClickListener{
+
+    @Bind(R.id.submitAccount) Button mButton;
+    @Bind(R.id.dateOfBirthView) EditText mBithday;
+    @Bind(R.id.bloodTypeEditView) EditText mBloodType;
+    @Bind(R.id.residenceEditView) EditText mResidence;
+    @Bind(R.id.emailEditView) EditText mEmail;
+    @Bind(R.id.nameEditView) EditText mName;
+
+    private Spinner spinnerListView1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_activity);
         ButterKnife.bind(this);
+        mButton.setOnClickListener(this);
 
-        mSubmitAccount.setOnClickListener(this);
+        addItemsOnSpinner1();
     }
 
-    public void onClick(View v) {
-        if(v == mSubmitAccount) {
-            String name = mNameEditView.getText().toString().trim();
-            String dateOfBirth = mDateOfBirthView.getText().toString().trim();
-            String sex = mSexEditView.getText().toString().trim();
-            String bloodType = mBloodTypeEditView.getText().toString().trim();
-            String residence = mResidenceEditView.getText().toString().trim();
-            String email = mEmailEditView.getText().toString().trim();
+    public void addItemsOnSpinner1() {
+        spinnerListView1 = (Spinner) findViewById(spinnerViewOne);
+        List<String> gender = new ArrayList<String>();
+        gender.add("Male");
+        gender.add("Female");
+        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_spinner_item, gender);
+        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerListView1.setAdapter(dataAdapter);
+    }
 
-            account = new Accounts(name,dateOfBirth,sex,bloodType,residence,email);
-            DatabaseReference userRef = FirebaseDatabase.getInstance()
-                    .getReference(Constants.FIREBASE_USER_ACCOUNTS);
-            userRef.push().setValue(account);
-            Log.v("checkout",account.getName());
+
+
+    @Override
+    public void onClick(View view){
+        if(view == mButton){
+            saveProfile();
+            Log.v("check",String.valueOf(spinnerListView1.getSelectedItem()));
         }
+    }
+    public void saveProfile(){
+        String name=mName.getText().toString().trim();
+        String dateOfBirth=mBithday.getText().toString().trim();
+        String sex=String.valueOf(spinnerListView1.getSelectedItem());
+        String bloodType=mBloodType.getText().toString().trim();
+        String residence=mResidence.getText().toString().trim();
+        String email=mEmail.getText().toString().trim();
+        Account account=new Account(name,dateOfBirth,sex,bloodType,residence,email);
+
+        DatabaseReference profileRef= FirebaseDatabase
+                .getInstance()
+                .getReference(Constants.FIREBASE_CHILD_PROFILE);
+        profileRef.push().setValue(account);
+
+        Toast.makeText(getApplicationContext(),"profile saved",Toast.LENGTH_LONG).show();
+        Intent intent=new Intent(getApplicationContext(),Dashboard_activity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
+        finish();
     }
 }

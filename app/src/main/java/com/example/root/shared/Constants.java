@@ -5,5 +5,5 @@ package com.example.root.shared;
  */
 
 public class Constants {
-    public static final String FIREBASE_USER_ACCOUNTS = "accounts";
+    public static final String FIREBASE_CHILD_PROFILE = "profiles";
 }
