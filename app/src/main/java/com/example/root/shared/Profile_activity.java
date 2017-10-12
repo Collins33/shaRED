@@ -22,18 +22,18 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 import static android.R.id.list;
-import static com.example.root.shared.R.id.spinnerViewOne;
+import static com.example.root.shared.R.id.spinnerView2;
+import static com.example.root.shared.R.id.spinnerView1;
 
 public class Profile_activity extends AppCompatActivity implements View.OnClickListener{
 
     @Bind(R.id.submitAccount) Button mButton;
     @Bind(R.id.dateOfBirthView) EditText mBithday;
-    @Bind(R.id.bloodTypeEditView) EditText mBloodType;
     @Bind(R.id.residenceEditView) EditText mResidence;
     @Bind(R.id.emailEditView) EditText mEmail;
     @Bind(R.id.nameEditView) EditText mName;
 
-    private Spinner spinnerListView1;
+    private Spinner spinnerListView1,spinnerListView2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,10 +43,11 @@ public class Profile_activity extends AppCompatActivity implements View.OnClickL
         mButton.setOnClickListener(this);
 
         addItemsOnSpinner1();
+        addItemsOnSpinner2();
     }
 
     public void addItemsOnSpinner1() {
-        spinnerListView1 = (Spinner) findViewById(spinnerViewOne);
+        spinnerListView1 = (Spinner) findViewById(spinnerView1);
         List<String> gender = new ArrayList<String>();
         gender.add("Male");
         gender.add("Female");
@@ -56,7 +57,22 @@ public class Profile_activity extends AppCompatActivity implements View.OnClickL
         spinnerListView1.setAdapter(dataAdapter);
     }
 
-
+    public void addItemsOnSpinner2() {
+        spinnerListView2 = (Spinner) findViewById(spinnerView2);
+        List<String> bloodGroup = new ArrayList<String>();
+        bloodGroup.add("A+");
+        bloodGroup.add("A-");
+        bloodGroup.add("B+");
+        bloodGroup.add("B-");
+        bloodGroup.add("AB+");
+        bloodGroup.add("AB-");
+        bloodGroup.add("O+");
+        bloodGroup.add("O-");
+        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_spinner_item, bloodGroup);
+        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerListView2.setAdapter(dataAdapter);
+    }
 
     @Override
     public void onClick(View view){
@@ -69,7 +85,7 @@ public class Profile_activity extends AppCompatActivity implements View.OnClickL
         String name=mName.getText().toString().trim();
         String dateOfBirth=mBithday.getText().toString().trim();
         String sex=String.valueOf(spinnerListView1.getSelectedItem());
-        String bloodType=mBloodType.getText().toString().trim();
+        String bloodType=String.valueOf(spinnerListView2.getSelectedItem());
         String residence=mResidence.getText().toString().trim();
         String email=mEmail.getText().toString().trim();
         Account account=new Account(name,dateOfBirth,sex,bloodType,residence,email);
