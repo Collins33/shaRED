@@ -1,5 +1,6 @@
 package com.example.root.shared;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -49,6 +50,11 @@ public class Profile_activity extends AppCompatActivity implements View.OnClickL
                 .getInstance()
                 .getReference(Constants.FIREBASE_CHILD_PROFILE);
         profileRef.push().setValue(account);
+
         Toast.makeText(getApplicationContext(),"profile saved",Toast.LENGTH_LONG).show();
+        Intent intent=new Intent(getApplicationContext(),Dashboard_activity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
+        finish();
     }
 }
