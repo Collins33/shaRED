@@ -17,15 +17,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Sign_up" />
-        <activity android:name=".Sign_in" />
-        <activity android:name=".Profile_activity" />
-        <activity android:name=".Dashboard_activity" />
-        <activity android:name=".Appointment_activity" />
-        <activity android:name=".Hospitals_activity" />
-        <activity android:name=".Request_activity" />
+
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".ProfileActivity" />
+        <activity android:name=".DashboardActivity" />
+        <activity android:name=".AppointmentActivity" />
+        <activity android:name=".HospitalsActivity" />
+        <activity android:name=".RequestActivity" />
         <activity android:name=".Notification_activity" />
-        <activity android:name=".Map_activity"></activity>
+        <activity android:name=".MapActivity"/>
+        <activity android:name=".RegisterActivity" />
     </application>
 
 </manifest>

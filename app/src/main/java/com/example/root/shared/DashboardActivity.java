@@ -3,11 +3,11 @@ package com.example.root.shared;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class Request_activity extends AppCompatActivity {
+public class DashboardActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_request_activity);
+        setContentView(R.layout.activity_dashboard_activity);
     }
 }
