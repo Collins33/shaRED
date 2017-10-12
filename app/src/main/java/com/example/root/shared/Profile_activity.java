@@ -37,6 +37,50 @@ public class Profile_activity extends AppCompatActivity implements View.OnClickL
             saveProfile();
         }
     }
+    //methods to check if form is filled correctly
+    public boolean isValidName(String name){
+        if(name.equals("")){
+            mName.setError("Enter valid name");
+            return false;
+        }
+        return true;
+    }
+    public boolean isValidBirthday(String birthday){
+        if(birthday.equals("")){
+            mBithday.setError("Enter date of birth");
+            return false;
+        }
+        return true;
+    }
+    public boolean isValidGender(String gender){
+        if(gender.equals("")){
+            mGender.setError("Enter valid gender");
+            return false;
+        }
+        return true;
+    }
+    public boolean isBloodType(String bloodtype){
+        if(bloodtype.equals("")){
+            mBloodType.setError("Enter valid bloodtype");
+            return false;
+        }
+        return true;
+    }
+    public boolean isValidResidence(String residence){
+        if(residence.equals("")){
+            mResidence.setError("Enter valid residence");
+            return false;
+        }
+        return true;
+    }
+    public boolean isValidEmail(String email){
+        if(email.equals("")){
+            mEmail.setError("Enter valid email");
+            return false;
+        }
+        return true;
+    }
+
     public void saveProfile(){
         String name=mName.getText().toString().trim();
         String dateOfBirth=mBithday.getText().toString().trim();
@@ -45,6 +89,15 @@ public class Profile_activity extends AppCompatActivity implements View.OnClickL
         String residence=mResidence.getText().toString().trim();
         String email=mEmail.getText().toString().trim();
         Account account=new Account(name,dateOfBirth,sex,bloodType,residence,email);
+ //this will check the inputs and ensure they are correct
+        boolean validName=isValidName(name);
+        boolean validBirthday=isValidBirthday(dateOfBirth);
+        boolean validGender=isValidGender(sex);
+        boolean validBloodtype=isBloodType(bloodType);
+        boolean validResidence=isValidResidence(residence);
+        boolean validEmail=isValidEmail(email);
+        //if they are not correct the code will not go past this section
+        if(!validName|!validBirthday|!validGender|!validBloodtype|!validResidence|!validEmail) return;
 
         DatabaseReference profileRef= FirebaseDatabase
                 .getInstance()
@@ -56,5 +109,6 @@ public class Profile_activity extends AppCompatActivity implements View.OnClickL
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
         finish();
+
     }
 }
