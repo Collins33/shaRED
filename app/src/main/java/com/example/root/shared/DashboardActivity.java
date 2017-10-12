@@ -3,7 +3,7 @@ package com.example.root.shared;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class Dashboard_activity extends AppCompatActivity {
+public class DashboardActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.database.DatabaseReference;
@@ -15,7 +14,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class Profile_activity extends AppCompatActivity implements View.OnClickListener{
+public class ProfileActivity extends AppCompatActivity implements View.OnClickListener{
    @Bind(R.id.submitAccount) Button mButton;
     @Bind(R.id.dateOfBirthView) EditText mBithday;
     @Bind(R.id.sexEditView) EditText mGender;
@@ -105,7 +104,7 @@ public class Profile_activity extends AppCompatActivity implements View.OnClickL
         profileRef.push().setValue(account);
 
         Toast.makeText(getApplicationContext(),"profile saved",Toast.LENGTH_LONG).show();
-        Intent intent=new Intent(getApplicationContext(),Dashboard_activity.class);
+        Intent intent=new Intent(getApplicationContext(),DashboardActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
         finish();

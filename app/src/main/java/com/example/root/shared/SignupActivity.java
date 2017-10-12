@@ -20,7 +20,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class Sign_up extends AppCompatActivity implements View.OnClickListener{
+public class SignupActivity extends AppCompatActivity implements View.OnClickListener{
     @Bind(R.id.createUserButton) Button mCreateUserButton;
     @Bind(R.id.nameEditText) EditText mNameEditText;
     @Bind(R.id.emailEditText) EditText mEmailEditText;
@@ -32,7 +32,7 @@ public class Sign_up extends AppCompatActivity implements View.OnClickListener{
 
     //firebase authentication object
     private FirebaseAuth mAuth;
-    public static final String TAG = Sign_up.class.getSimpleName();
+    public static final String TAG = SignupActivity.class.getSimpleName();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,7 +57,7 @@ public class Sign_up extends AppCompatActivity implements View.OnClickListener{
     public void onClick(View view){
         //intent to go to sign in activity
         if(view == mLogIn){
-            Intent intent=new Intent(getApplicationContext(),Sign_in.class);
+            Intent intent=new Intent(getApplicationContext(),SigninActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
             finish();
@@ -117,11 +117,11 @@ public class Sign_up extends AppCompatActivity implements View.OnClickListener{
              if(task.isSuccessful()){
                  //check if authentication was successful
                  Log.d(TAG, "Authentication successful");
-                 Intent intent=new Intent(getApplicationContext(),Dashboard_activity.class);
+                 Intent intent=new Intent(getApplicationContext(),DashboardActivity.class);
                  startActivity(intent);
              }
              else{
-                 Toast.makeText(Sign_up.this,"Authentication failed",Toast.LENGTH_LONG).show();
+                 Toast.makeText(SignupActivity.this,"Authentication failed",Toast.LENGTH_LONG).show();
              }
             }
         });

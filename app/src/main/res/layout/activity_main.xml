@@ -16,34 +16,35 @@
         android:layout_centerHorizontal="true" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/bloodDriveButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/imageView3"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="42dp"
 
         android:background="@color/primary"
-        android:text="find blood drive" />
+        android:text="find blood drive"
+        android:layout_marginBottom="68dp"
+        android:layout_alignBottom="@+id/requestDonationButton"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/requestDonationButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/button4"
-        android:layout_alignStart="@+id/button4"
-        android:layout_below="@+id/button4"
-        android:layout_marginTop="36dp"
         android:background="@color/primary"
-        android:text="REQUEST FOR DONATION" />
+        android:text="REQUEST FOR DONATION"
+        android:layout_above="@+id/dashboardButton"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="19dp" />
 
     <Button
-        android:id="@+id/button6"
+        android:id="@+id/dashboardButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/button5"
+        android:layout_alignEnd="@+id/requestDonationButton"
         android:layout_alignParentBottom="true"
-        android:layout_alignRight="@+id/button5"
+        android:layout_alignRight="@+id/requestDonationButton"
         android:background="@color/primary"
         android:text="DASHBOARD" />
 

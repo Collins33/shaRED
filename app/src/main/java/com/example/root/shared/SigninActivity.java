@@ -18,13 +18,13 @@ import com.google.firebase.auth.FirebaseUser;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class Sign_in extends AppCompatActivity implements View.OnClickListener{
+public class SigninActivity extends AppCompatActivity implements View.OnClickListener{
     @Bind(R.id.signUpTextView) TextView mRegisterTextView;
     @Bind(R.id.emailEditText) TextView mEmailTextView;
     @Bind(R.id.passwordEditText) TextView mPasswordTextView;
     @Bind(R.id.LogIn) TextView mLogInButton;
     private FirebaseAuth mAuth;
-    public static final String TAG = Sign_up.class.getSimpleName();
+    public static final String TAG = SignupActivity.class.getSimpleName();
     private FirebaseAuth.AuthStateListener mAuthstate;
 
     @Override
@@ -62,7 +62,7 @@ public class Sign_in extends AppCompatActivity implements View.OnClickListener{
     @Override
     public void onClick(View view){
         if(view==mRegisterTextView){
-        Intent intent=new Intent(getApplicationContext(),Sign_up.class);
+        Intent intent=new Intent(getApplicationContext(),SignupActivity.class);
         startActivity(intent);
         finish();}
         if(view==mLogInButton){
@@ -87,7 +87,7 @@ public class Sign_in extends AppCompatActivity implements View.OnClickListener{
             public void onComplete(@NonNull Task<AuthResult> task) {
               if(!task.isSuccessful()){
                   Log.w(TAG, "signInWithEmail", task.getException());
-                  Toast.makeText(Sign_in.this, "Authentication failed.",
+                  Toast.makeText(SigninActivity.this, "Authentication failed.",
                           Toast.LENGTH_SHORT).show();
               }
             }
