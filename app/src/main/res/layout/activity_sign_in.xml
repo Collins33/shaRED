@@ -60,15 +60,15 @@
             />
 
         <TextView
+            android:id="@+id/signUpTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
 
-            android:textStyle="bold"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:text="Dont have an account? Sign Up"
             android:textSize="15sp"
-            android:text="Dont have an account?Sign_up"
-            android:id="@+id/signUpTextView"
-            android:layout_gravity="center_horizontal" />
+            android:textStyle="bold"/>
 
     </LinearLayout>
 
