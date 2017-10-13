@@ -3,11 +3,11 @@ package com.example.root.shared;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class Sign_up extends AppCompatActivity {
+public class RequestActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sign_up);
+        setContentView(R.layout.activity_request_activity);
     }
 }

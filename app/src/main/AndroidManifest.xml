@@ -12,8 +12,8 @@
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity">
         </activity>
-        <activity android:name=".Sign_up" />
-        <activity android:name=".Sign_in" />
+        <activity android:name=".SignupActivity" />
+        <activity android:name=".SigninActivity" />
         <activity android:name=".Profile_activity">
         <intent-filter>
             <action android:name="android.intent.action.MAIN" />
@@ -21,12 +21,12 @@
             <category android:name="android.intent.category.LAUNCHER" />
         </intent-filter>
         </activity>
-        <activity android:name=".Dashboard_activity" />
-        <activity android:name=".Appointment_activity" />
-        <activity android:name=".Hospitals_activity" />
-        <activity android:name=".Request_activity" />
-        <activity android:name=".Notification_activity" />
-        <activity android:name=".Map_activity"></activity>
+        <activity android:name=".DashboardActivity" />
+        <activity android:name=".AppointmentActivity" />
+        <activity android:name=".HospitalsActivity" />
+        <activity android:name=".RequestActivity" />
+        <activity android:name=".NotificationActivity" />
+        <activity android:name=".MapActivity"></activity>
     </application>
 
 </manifest>

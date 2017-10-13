@@ -21,7 +21,6 @@ import java.util.List;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-import static android.R.id.list;
 import static com.example.root.shared.R.id.spinnerView2;
 import static com.example.root.shared.R.id.spinnerView1;
 
@@ -96,7 +95,7 @@ public class Profile_activity extends AppCompatActivity implements View.OnClickL
         profileRef.push().setValue(account);
 
         Toast.makeText(getApplicationContext(),"profile saved",Toast.LENGTH_LONG).show();
-        Intent intent=new Intent(getApplicationContext(),Dashboard_activity.class);
+        Intent intent=new Intent(getApplicationContext(),DashboardActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
         finish();
