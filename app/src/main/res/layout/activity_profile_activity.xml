@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.root.shared.Profile_activity">
-
+    tools:context="com.example.root.shared.ProfileActivity">
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
@@ -14,7 +14,6 @@
         android:paddingBottom="60dp"
         android:layout_marginBottom="10dp"
         android:layout_marginLeft="75dp">
-
         <TextView
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
@@ -23,7 +22,6 @@
             android:textColor="#000000"
             android:textStyle="bold"
             android:layout_marginBottom="15dp"/>
-
         <EditText
             android:id="@+id/nameEditView"
             android:layout_width="wrap_content"
@@ -32,7 +30,6 @@
             android:ems="10"
             android:inputType="textPersonName"
             android:hint="Name" />
-
         <EditText
             android:id="@+id/dateOfBirthView"
             android:layout_width="wrap_content"
@@ -41,21 +38,18 @@
             android:ems="10"
             android:inputType="textPersonName"
             android:hint="Date Of Birth(dd/mm/yy)" />
-
         <Spinner
             android:id="@+id/spinnerView1"
             android:layout_marginBottom="15dp"
             android:layout_width="match_parent"
             style="@style/Base.Widget.AppCompat.Spinner.Underlined"
             android:layout_height="wrap_content" />
-
         <Spinner
             android:id="@+id/spinnerView2"
             android:layout_marginBottom="15dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             style="@style/Base.Widget.AppCompat.Spinner.Underlined"/>
-
         <EditText
             android:id="@+id/residenceEditView"
             android:layout_width="wrap_content"
@@ -64,7 +58,6 @@
             android:ems="10"
             android:inputType="textPersonName"
             android:hint="Residence e.g Nairobi" />
-
         <EditText
             android:id="@+id/emailEditView"
             android:layout_width="wrap_content"
@@ -73,7 +66,6 @@
             android:ems="10"
             android:inputType="textPersonName"
             android:hint="Email" />
-
     </LinearLayout>
     <Button
         android:layout_width="wrap_content"
@@ -83,6 +75,5 @@
         android:id="@+id/submitAccount"
         android:text="submit"
         android:layout_marginBottom="20dp"/>
-
 
 </RelativeLayout>
