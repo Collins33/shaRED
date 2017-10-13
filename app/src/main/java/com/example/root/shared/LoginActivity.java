@@ -24,7 +24,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     @Bind(R.id.passwordEditText) TextView mPasswordTextView;
     @Bind(R.id.LogIn) TextView mLogInButton;
     private FirebaseAuth mAuth;
-    public static final String TAG = RegisterActivity.class.getSimpleName();
+    public static final String TAG = LoginActivity.class.getSimpleName();
     private FirebaseAuth.AuthStateListener mAuthstate;
 
     @Override
@@ -62,9 +62,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     @Override
     public void onClick(View view){
         if(view==mRegisterTextView){
-        Intent intent=new Intent(getApplicationContext(),RegisterActivity.class);
-        startActivity(intent);
-        finish();}
+            Intent intent=new Intent(getApplicationContext(),RegisterActivity.class);
+            startActivity(intent);
+            finish();}
         if(view==mLogInButton){
             logInWithPassword();
         }
@@ -85,11 +85,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         mAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
-              if(!task.isSuccessful()){
-                  Log.w(TAG, "signInWithEmail", task.getException());
-                  Toast.makeText(LoginActivity.this, "Authentication failed.",
-                          Toast.LENGTH_SHORT).show();
-              }
+                if(!task.isSuccessful()){
+                    Log.w(TAG, "signInWithEmail", task.getException());
+                    Toast.makeText(LoginActivity.this, "Authentication failed.",
+                            Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }

@@ -57,7 +57,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     public void onClick(View view){
         //intent to go to sign in activity
         if(view == mLogIn){
-            Intent intent=new Intent(getApplicationContext(),LoginActivity.class);
+            Intent intent=new Intent(getApplicationContext(),SigninActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
             finish();
@@ -114,15 +114,15 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 mDialog.dismiss();
-             if(task.isSuccessful()){
-                 //check if authentication was successful
-                 Log.d(TAG, "Authentication successful");
-                 Intent intent=new Intent(getApplicationContext(),DashboardActivity.class);
-                 startActivity(intent);
-             }
-             else{
-                 Toast.makeText(RegisterActivity.this,"Authentication failed",Toast.LENGTH_LONG).show();
-             }
+                if(task.isSuccessful()){
+                    //check if authentication was successful
+                    Log.d(TAG, "Authentication successful");
+                    Intent intent=new Intent(getApplicationContext(),DashboardActivity.class);
+                    startActivity(intent);
+                }
+                else{
+                    Toast.makeText(RegisterActivity.this,"Authentication failed",Toast.LENGTH_LONG).show();
+                }
             }
         });
 
