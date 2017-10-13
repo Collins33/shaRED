@@ -24,7 +24,7 @@ public class SigninActivity extends AppCompatActivity implements View.OnClickLis
     @Bind(R.id.passwordEditText) TextView mPasswordTextView;
     @Bind(R.id.LogIn) TextView mLogInButton;
     private FirebaseAuth mAuth;
-    public static final String TAG = SignupActivity.class.getSimpleName();
+    public static final String TAG = SigninActivity.class.getSimpleName();
     private FirebaseAuth.AuthStateListener mAuthstate;
 
     @Override

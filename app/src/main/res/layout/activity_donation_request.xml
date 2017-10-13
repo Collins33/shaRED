@@ -1,9 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.root.shared.DonationRequestActivity">
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingTop="10dp"
+        android:paddingBottom="60dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="75dp">
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:text="FILL FORM TO REQUEST FOR BLOOD"
+            android:textSize="23sp"
+            android:textColor="#000000"
+            android:textStyle="bold"
+            android:layout_marginBottom="15dp"/>
+        <EditText
+            android:id="@+id/nameEditView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:hint="Name of recipient" />
+        <EditText
+            android:id="@+id/hospitalName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:hint="Hospital" />
+        <Spinner
+            android:id="@+id/spinnerViewBlood"
+            android:layout_marginBottom="15dp"
+            android:layout_width="match_parent"
+            style="@style/Base.Widget.AppCompat.Spinner.Underlined"
+            android:layout_height="wrap_content" />
+        <Spinner
+            android:id="@+id/spinnerpatientState"
+            android:layout_marginBottom="15dp"
+            android:layout_width="match_parent"
+            style="@style/Base.Widget.AppCompat.Spinner.Underlined"
+            android:layout_height="wrap_content" />
 
-</android.support.constraint.ConstraintLayout>
+        <EditText
+            android:id="@+id/recipientContact"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:hint="Enter contact details" />
+
+    </LinearLayout>
+    <Button
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/submitRequest"
+        android:text="Get donation"
+        android:layout_marginBottom="20dp"/>
+
+
+</RelativeLayout>
