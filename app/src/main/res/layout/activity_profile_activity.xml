@@ -5,20 +5,28 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.root.shared.ProfileActivity">
-
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:gravity="center"
+        android:gravity="center_horizontal"
         android:orientation="vertical"
-        android:paddingTop="20dp"
+        android:paddingTop="10dp"
         android:paddingBottom="60dp"
-        android:layout_marginBottom="10dp">
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="75dp">
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:text="Donor's Details"
+            android:textSize="23sp"
+            android:textColor="#000000"
+            android:textStyle="bold"
+            android:layout_marginBottom="15dp"/>
         <EditText
             android:id="@+id/nameEditView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_marginBottom="15dp"
             android:ems="10"
             android:inputType="textPersonName"
             android:hint="Name" />
@@ -26,31 +34,27 @@
             android:id="@+id/dateOfBirthView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_marginBottom="15dp"
             android:ems="10"
             android:inputType="textPersonName"
             android:hint="Date Of Birth(dd/mm/yy)" />
-        <EditText
-            android:id="@+id/sexEditView"
-            android:layout_width="wrap_content"
+        <Spinner
+            android:id="@+id/spinnerView1"
+            android:layout_marginBottom="15dp"
+            android:layout_width="match_parent"
+            style="@style/Base.Widget.AppCompat.Spinner.Underlined"
+            android:layout_height="wrap_content" />
+        <Spinner
+            android:id="@+id/spinnerView2"
+            android:layout_marginBottom="15dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:ems="10"
-            android:inputType="text"
-            android:hint="Sex(Male or Female)" />
-        <EditText
-            android:id="@+id/bloodTypeEditView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:hint="Blood Type" />
+            style="@style/Base.Widget.AppCompat.Spinner.Underlined"/>
         <EditText
             android:id="@+id/residenceEditView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_marginBottom="15dp"
             android:ems="10"
             android:inputType="textPersonName"
             android:hint="Residence e.g Nairobi" />
@@ -58,7 +62,7 @@
             android:id="@+id/emailEditView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_marginBottom="15dp"
             android:ems="10"
             android:inputType="textPersonName"
             android:hint="Email" />
@@ -70,7 +74,8 @@
         android:layout_centerHorizontal="true"
         android:id="@+id/submitAccount"
         android:text="submit"
-        android:layout_marginBottom="5dp"/>
+        android:layout_marginBottom="20dp"/>
+
 
 
 </RelativeLayout>

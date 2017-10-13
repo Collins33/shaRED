@@ -15,10 +15,10 @@
         <activity android:name=".SigninActivity" />
         <activity android:name=".ProfileActivity" />
         <activity android:name=".DashboardActivity" />
-        <activity android:name=".Appointment_activity" />
+        <activity android:name=".AppointmentActivity" />
         <activity android:name=".HospitalsActivity" />
-        <activity android:name=".Request_activity" />
-        <activity android:name=".Notification_activity" />
+        <activity android:name=".RequestActivity" />
+        <activity android:name=".NotificationActivity" />
         <activity android:name=".MapActivity" />
         <activity android:name=".SignupActivity">
             <intent-filter>

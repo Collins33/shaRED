@@ -3,7 +3,7 @@ package com.example.root.shared;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class Notification_activity extends AppCompatActivity {
+public class NotificationActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
