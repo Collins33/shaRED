@@ -28,7 +28,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".BloodDriveActivity" />
-        <activity android:name=".DonationRequestActivity"></activity>
+        <activity android:name=".DonationRequestActivity" />
+        <activity android:name=".UserProfileActivity"></activity>
     </application>
 
 </manifest>

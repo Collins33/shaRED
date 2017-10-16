@@ -13,6 +13,8 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -132,6 +134,11 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     }
 
     public void saveProfile() {
+        //grab the currently authenticated user
+        //get their id
+        FirebaseUser user=FirebaseAuth.getInstance().getCurrentUser();
+        String uid=user.getUid();
+
         String name = mName.getText().toString().trim();
         String dateOfBirth = mBithday.getText().toString().trim();
         String sex = String.valueOf(spinnerListView1.getSelectedItem());
@@ -141,7 +148,16 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         Account account = new Account(name, dateOfBirth, sex, bloodType, residence, email);
         DatabaseReference profileRef = FirebaseDatabase
                 .getInstance()
-                .getReference(Constants.FIREBASE_CHILD_PROFILE);
+                .getReference(Constants.FIREBASE_CHILD_PROFILE)
+                .child(uid);
+        //reference to push the id
+        DatabaseReference pushRef=profileRef.push();
+        //get id
+        String pushId=pushRef.getKey();
+        account.setPushId(pushId);
+        pushRef.setValue(account);
+
+
         profileRef.push().setValue(account);
         addToSharedPreferences(name);
         Toast.makeText(getApplicationContext(), "profile saved", Toast.LENGTH_LONG).show();
