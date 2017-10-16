@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View view){
         if(view==mFindBloodDriveButton){
-            Intent intent=new Intent(getApplicationContext(),BloodDriveActivity.class);
+            Intent intent=new Intent(getApplicationContext(),RequestListActivity.class);
             startActivity(intent);
         }
 

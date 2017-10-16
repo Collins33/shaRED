@@ -7,14 +7,6 @@
     tools:context="com.example.root.shared.MainActivity">
 
 
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="wrap_content"
-        android:layout_height="250dp"
-        app:srcCompat="@drawable/blooddrop"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
-
     <Button
         android:id="@+id/bloodDriveButton"
         android:layout_width="match_parent"

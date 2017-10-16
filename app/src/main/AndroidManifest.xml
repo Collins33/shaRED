@@ -17,7 +17,7 @@
         <activity android:name=".DashboardActivity" />
         <activity android:name=".AppointmentActivity" />
         <activity android:name=".HospitalsActivity" />
-        <activity android:name=".RequestActivity" />
+        <activity android:name=".RequestListActivity" />
         <activity android:name=".NotificationActivity" />
         <activity android:name=".MapActivity" />
         <activity android:name=".SignupActivity">
