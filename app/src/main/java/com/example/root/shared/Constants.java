@@ -7,4 +7,5 @@ package com.example.root.shared;
 public class Constants {
     public static final String FIREBASE_CHILD_PROFILE = "profiles";
     public static final String FIREBASE_CHILD_REQUEST="request";
+    public static final String SHAREDPREFERENCE_PROFILE="profile";
 }
