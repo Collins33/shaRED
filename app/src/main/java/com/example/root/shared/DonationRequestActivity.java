@@ -87,7 +87,7 @@ public class DonationRequestActivity extends AppCompatActivity implements View.O
                 .getInstance()
                 .getReference(Constants.FIREBASE_CHILD_REQUEST);
         mRef.push().setValue(newRequest);
-        Intent newIntent=new Intent(getApplicationContext(),MainActivity.class);
+        Intent newIntent=new Intent(getApplicationContext(),DashboardActivity.class);
         newIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
         finish();
         Toast.makeText(getApplicationContext(),"your request has been sent",Toast.LENGTH_LONG).show();
