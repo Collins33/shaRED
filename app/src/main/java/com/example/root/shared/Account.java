@@ -47,7 +47,7 @@ public class Account {
     public String getPushId() {
         return pushId;
     }
-    public void setPushId(String pushId) {
+    public void setPushId(String pushId){
         this.pushId=pushId;
     }
 }
