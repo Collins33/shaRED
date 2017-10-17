@@ -56,7 +56,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         //check shared preferece
         recentName=mSharedPreference.getString(Constants.SHAREDPREFERENCE_PROFILE,null);
         if(recentName != null){
-            Intent intent=new Intent(getApplicationContext(),MainActivity.class);
+            Intent intent=new Intent(getApplicationContext(),DashboardActivity.class);
             startActivity(intent);
             finish();
         }
@@ -161,7 +161,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         profileRef.push().setValue(account);
         addToSharedPreferences(name);
         Toast.makeText(getApplicationContext(), "profile saved", Toast.LENGTH_LONG).show();
-        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+        Intent intent = new Intent(getApplicationContext(), DashboardActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
         finish();
