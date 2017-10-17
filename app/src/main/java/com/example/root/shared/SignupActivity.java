@@ -114,15 +114,15 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 mDialog.dismiss();
-             if(task.isSuccessful()){
-                 //check if authentication was successful
-                 Log.d(TAG, "Authentication successful");
-                 Intent intent=new Intent(getApplicationContext(),DashboardActivity.class);
-                 startActivity(intent);
-             }
-             else{
-                 Toast.makeText(SignupActivity.this,"Authentication failed",Toast.LENGTH_LONG).show();
-             }
+                if(task.isSuccessful()){
+                    //check if authentication was successful
+                    Log.d(TAG, "Authentication successful");
+                    Intent intent=new Intent(getApplicationContext(),DashboardActivity.class);
+                    startActivity(intent);
+                }
+                else{
+                    Toast.makeText(SignupActivity.this,"Authentication failed",Toast.LENGTH_LONG).show();
+                }
             }
         });
 
