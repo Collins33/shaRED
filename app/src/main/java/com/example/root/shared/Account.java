@@ -11,6 +11,7 @@ public class Account {
     String bloodType;
     String residence;
     String email;
+    private String pushId;
     //empty constructor to be used by firebase
     public Account(){}
 
@@ -41,5 +42,12 @@ public class Account {
 
     public String getEmail() {
         return email;
+    }
+
+    public String getPushId() {
+        return pushId;
+    }
+    public void setPushId(String pushId) {
+        this.pushId=pushId;
     }
 }

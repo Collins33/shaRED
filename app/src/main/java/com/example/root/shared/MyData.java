@@ -5,6 +5,6 @@ package com.example.root.shared;
  */
 
 public class MyData {
-    static String[] categories = {"Blood Drive","Profile","Make A Request","Blood Request"};
-    static Integer[] images = {};
+    static String[] categorys = {"Blood Drive","Profile","Make A Request","Blood Request"};
+    static Integer[] images = {R.drawable.blooddrive,R.drawable.profile,R.drawable.request,R.drawable.notification};
 }

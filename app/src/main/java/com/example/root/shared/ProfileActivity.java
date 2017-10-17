@@ -128,7 +128,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                 .getReference(Constants.FIREBASE_CHILD_PROFILE);
         profileRef.push().setValue(account);
         Toast.makeText(getApplicationContext(), "profile saved", Toast.LENGTH_LONG).show();
-        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+        Intent intent = new Intent(getApplicationContext(), DashboardActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
         finish();
