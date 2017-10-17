@@ -76,6 +76,4 @@
         android:text="submit"
         android:layout_marginBottom="20dp"/>
 
-
-
 </RelativeLayout>

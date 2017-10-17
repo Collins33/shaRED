@@ -14,8 +14,6 @@
         android:layout_centerHorizontal="true"
         android:id="@+id/linearLayout">
 
-
-
         <EditText
             android:id="@+id/emailEditText"
             android:layout_width="match_parent"
@@ -64,7 +62,6 @@
             android:text="Dont have an account?Sign_up"
             android:id="@+id/signUpTextView"
             android:layout_gravity="center_horizontal" />
-
     </LinearLayout>
 
     <TextView
