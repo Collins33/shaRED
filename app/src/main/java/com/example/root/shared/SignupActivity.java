@@ -16,6 +16,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -29,6 +30,7 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
     @Bind(R.id.loginTextView) TextView mLogIn;
 
     private ProgressDialog mDialog;
+    private FirebaseAuth.AuthStateListener mListener;
 
     //firebase authentication object
     private FirebaseAuth mAuth;
@@ -38,12 +40,35 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
         ButterKnife.bind(this);
+        //listen for authentication
+        mListener=new FirebaseAuth.AuthStateListener() {
+
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                FirebaseUser user=firebaseAuth.getCurrentUser();
+                if(user!=null){
+                    Intent dashboard=new Intent(getApplicationContext(),DashboardActivity.class);
+                    startActivity(dashboard);
+                    finish();
+                }
+            }
+        };
 
         createProgressDialog();
         mLogIn.setOnClickListener(this);
         mCreateUserButton.setOnClickListener(this);
         //get instance of firebase authentication
         mAuth=FirebaseAuth.getInstance();
+    }
+    @Override
+    public void onStart(){
+        super.onStart();
+        mAuth.addAuthStateListener(mListener);
+    }
+    @Override
+    public void onStop(){
+        super.onStop();
+        mAuth.removeAuthStateListener(mListener);
     }
     //create the progress dialog
     public void createProgressDialog(){
