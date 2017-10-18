@@ -13,7 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".SigninActivity" />
-        <activity android:name=".ProfileActivity" />
+        <activity android:name=".CreateProfileActivity" />
         <activity android:name=".AppointmentActivity" />
         <activity android:name=".HospitalsActivity" />
         <activity android:name=".RequestListActivity" />
@@ -30,7 +30,10 @@
         <activity android:name=".BloodDriveActivity" />
         <activity android:name=".DonationRequestActivity" />
         <activity android:name=".UserProfileActivity" />
-        <activity android:name=".DashboardActivity"></activity>
+        <activity
+            android:name=".DashboardActivity">
+
+        </activity>
     </application>
 
 </manifest>

@@ -11,7 +11,7 @@ public class Account {
     String bloodType;
     String residence;
     String email;
-    private String pushId;
+    String pushId;
     //empty constructor to be used by firebase
     public Account(){}
 

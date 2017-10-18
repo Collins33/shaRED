@@ -32,7 +32,7 @@
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
                 android:fitsSystemWindows="true"
-                android:scaleType="fitXY"
+
                 app:srcCompat="@drawable/profile" />
 
             <TextView
@@ -82,7 +82,7 @@
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
                 android:fitsSystemWindows="true"
-                android:scaleType="fitXY"
+
                 app:srcCompat="@drawable/blooddrive" />
 
             <TextView
@@ -131,7 +131,7 @@
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
                 android:fitsSystemWindows="true"
-                android:scaleType="fitXY"
+
                 app:srcCompat="@drawable/request" />
 
             <TextView
@@ -145,7 +145,7 @@
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
                 android:paddingTop="0dp"
-                android:text="DONATE"
+                android:text="REQUEST"
                 android:textAlignment="center"
                 android:textColor="@android:color/background_light"
                 android:textSize="20dp" />
@@ -181,7 +181,7 @@
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
                 android:fitsSystemWindows="true"
-                android:scaleType="fitXY"
+
                 app:srcCompat="@drawable/notification" />
 
             <TextView
@@ -195,7 +195,7 @@
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
                 android:paddingTop="0dp"
-                android:text="REQUEST"
+                android:text="DONATE"
                 android:textAlignment="center"
                 android:textColor="@android:color/background_light"
                 android:textSize="20dp" />
