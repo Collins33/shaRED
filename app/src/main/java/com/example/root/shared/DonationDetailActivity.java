@@ -12,8 +12,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class DonationDetailActivity extends AppCompatActivity {
-    @Bind(R.id.viewPager)
-    ViewPager mViewPager;
+    @Bind(R.id.viewPager) ViewPager mViewPager;
     private RequestPagerAdapter adapterViewPager;
     ArrayList<Request> mRequest = new ArrayList<>();
 
@@ -23,7 +22,7 @@ public class DonationDetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_donation_detail);
         ButterKnife.bind(this);
 
-        mRequest = Parcels.unwrap(getIntent().getParcelableExtra("restaurants"));
+        mRequest = Parcels.unwrap(getIntent().getParcelableExtra("request"));
         int startingPosition = getIntent().getIntExtra("position", 0);
 
         adapterViewPager = new RequestPagerAdapter(getSupportFragmentManager(), mRequest);

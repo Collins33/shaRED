@@ -12,6 +12,7 @@ import java.util.ArrayList;
 
 public class RequestPagerAdapter extends FragmentPagerAdapter {
     private ArrayList<Request> mRequest;
+
     public RequestPagerAdapter(FragmentManager fm,ArrayList<Request>request){
         super(fm);
         mRequest=request;
