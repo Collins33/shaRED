@@ -37,7 +37,9 @@
         <activity android:name=".MapActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.root.shared.MapActivity"></meta-data>
+                android:value="com.example.root.shared.MapActivity">
+
+            </meta-data>
         </activity>
         <activity android:name=".SignupActivity">
             <intent-filter>
@@ -56,7 +58,9 @@
         <activity android:name=".DonationRequestActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.root.shared.DonationRequestActivity"></meta-data>
+                android:value="com.example.root.shared.DonationRequestActivity">
+
+            </meta-data>
         </activity>
         <activity android:name=".UserProfileActivity">
             <meta-data
