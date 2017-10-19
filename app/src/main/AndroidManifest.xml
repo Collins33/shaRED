@@ -49,7 +49,9 @@
         <activity android:name=".BloodDriveActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.root.shared.BloodDriveActivity"></meta-data>
+                android:value="com.example.root.shared.BloodDriveActivity">
+
+            </meta-data>
         </activity>
         <activity android:name=".DonationRequestActivity">
             <meta-data
@@ -59,10 +61,18 @@
         <activity android:name=".UserProfileActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.root.shared.UserProfileActivity"></meta-data>
+                android:value="com.example.root.shared.UserProfileActivity">
+
+            </meta-data>
         </activity>
         <activity android:name=".DashboardActivity"></activity>
-        <activity android:name=".DonationDetailActivity"></activity>
+        <activity android:name=".DonationDetailActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.root.shared.DonationDetailActivity">
+
+            </meta-data>
+        </activity>
     </application>
 
 </manifest>

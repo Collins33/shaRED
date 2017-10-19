@@ -53,7 +53,7 @@ public class DonationDetailFragment extends Fragment {
         View view= inflater.inflate(R.layout.fragment_donation_detail, container, false);
         ButterKnife.bind(this,view);
         mPatientName.setText(request.getName());
-        mPatientBloodType.setText(request.getBloodtype());
+        mPatientBloodType.setText(request.getContact());
         mPatientCondition.setText(request.getState());
         mPatientLocation.setText(request.getHospital());
         return view;
