@@ -4,29 +4,61 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.Spinner;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class RequestListActivity extends AppCompatActivity {
+public class RequestListActivity extends AppCompatActivity implements View.OnClickListener{
     private DatabaseReference mRef;
     private FirebaseRequestListAdapter mAdapter;
     @Bind(R.id.bloodRequestRecycler) RecyclerView mRecycler;
+    @Bind(R.id.searchBlood) Button mFindBloodType;
+    private Spinner spinnerListView1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_request_activity);
+        addItemsToSpinner();
         ButterKnife.bind(this);
+        mFindBloodType.setOnClickListener(this);
+    }
+    @Override
+    public void onClick(View view){
         setUpFirebaseAdapter();
     }
+    public void addItemsToSpinner(){
+        spinnerListView1=(Spinner) findViewById(R.id.spinnerViewBlood);
+        List<String> bloodGroup = new ArrayList<String>();
+        bloodGroup.add("A+");
+        bloodGroup.add("A-");
+        bloodGroup.add("B+");
+        bloodGroup.add("B-");
+        bloodGroup.add("AB+");
+        bloodGroup.add("AB-");
+        bloodGroup.add("O+");
+        bloodGroup.add("O-");
+        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_spinner_item, bloodGroup);
+        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerListView1.setAdapter(dataAdapter);
+    }
+
     public void setUpFirebaseAdapter(){
         mRef= FirebaseDatabase.getInstance().getReference();
-        Query query= mRef.child("request").orderByChild("contact").equalTo("A+");
+        String blood=String.valueOf(spinnerListView1.getSelectedItem());
+        Query query= mRef.child("request").orderByChild("contact").equalTo(blood);
         mAdapter=new FirebaseRequestListAdapter(Request.class,
                 R.layout.request_card_layout, FirebaseRequestViewHolder.class,
                 query, this);

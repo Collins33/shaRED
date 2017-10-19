@@ -24,6 +24,7 @@ public class DonationRequestActivity extends AppCompatActivity implements View.O
     @Bind(R.id.hospitalName) EditText mhospitalName;
     @Bind(R.id.recipientContact) EditText mRecipientContact;
 
+
     @Bind(R.id.submitRequest) Button mRequestButton;
     private Spinner spinnerListView1,spinnerListView2;
 
