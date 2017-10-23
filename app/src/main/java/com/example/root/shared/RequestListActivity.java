@@ -58,7 +58,7 @@ public class RequestListActivity extends AppCompatActivity implements View.OnCli
     public void setUpFirebaseAdapter(){
         mRef= FirebaseDatabase.getInstance().getReference();
         String blood=String.valueOf(spinnerListView1.getSelectedItem());
-        Query query= mRef.child("request").orderByChild("contact").equalTo(blood);
+        Query query= mRef.child("request").orderByChild("bloodtype").equalTo(blood);
         mAdapter=new FirebaseRequestListAdapter(Request.class,
                 R.layout.request_card_layout, FirebaseRequestViewHolder.class,
                 query, this);
@@ -66,9 +66,5 @@ public class RequestListActivity extends AppCompatActivity implements View.OnCli
         mRecycler.setAdapter(mAdapter);
         mRecycler.setHasFixedSize(true);
     }
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        mAdapter.cleanup();
-    }
+
 }

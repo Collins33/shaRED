@@ -23,7 +23,7 @@ public class DonationDetailActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         mRequest = Parcels.unwrap(getIntent().getParcelableExtra("request"));
-        int startingPosition = getIntent().getIntExtra("position", 0);
+        int startingPosition = getIntent().getIntExtra("position",3);
 
         adapterViewPager = new RequestPagerAdapter(getSupportFragmentManager(), mRequest);
         mViewPager.setAdapter(adapterViewPager);

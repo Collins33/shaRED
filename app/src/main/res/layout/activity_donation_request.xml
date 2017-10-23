@@ -30,14 +30,6 @@
             android:background="@android:color/background_light"
             android:orientation="vertical">
 
-            <EditText
-                android:id="@+id/nameEditView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="15dp"
-                android:ems="10"
-                android:hint="Name of recipient"
-                android:inputType="textPersonName" />
 
             <EditText
                 android:id="@+id/hospitalName"
@@ -62,14 +54,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="15dp" />
 
-            <EditText
-                android:id="@+id/recipientContact"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="15dp"
-                android:ems="10"
-                android:hint="Enter contact details"
-                android:inputType="textPersonName" />
+
 
         </LinearLayout>
     </android.support.v7.widget.CardView>

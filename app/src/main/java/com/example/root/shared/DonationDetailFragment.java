@@ -19,7 +19,7 @@ import butterknife.ButterKnife;
  * A simple {@link Fragment} subclass.
  */
 public class DonationDetailFragment extends Fragment {
-    @Bind(R.id.donationName) TextView mPatientName;
+
     @Bind(R.id.donationLocation) TextView mPatientLocation;
     @Bind(R.id.donationCondition) TextView mPatientCondition;
     @Bind(R.id.donationBloodType) TextView mPatientBloodType;
@@ -52,8 +52,8 @@ public class DonationDetailFragment extends Fragment {
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_donation_detail, container, false);
         ButterKnife.bind(this,view);
-        mPatientName.setText(request.getName());
-        mPatientBloodType.setText(request.getContact());
+
+        mPatientBloodType.setText(request.getBloodtype());
         mPatientCondition.setText(request.getState());
         mPatientLocation.setText(request.getHospital());
         return view;

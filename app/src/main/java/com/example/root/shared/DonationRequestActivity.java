@@ -20,9 +20,9 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class DonationRequestActivity extends AppCompatActivity implements View.OnClickListener{
-    @Bind(R.id.nameEditView) EditText mRecipientName;
+
     @Bind(R.id.hospitalName) EditText mhospitalName;
-    @Bind(R.id.recipientContact) EditText mRecipientContact;
+
 
 
     @Bind(R.id.submitRequest) Button mRequestButton;
@@ -39,13 +39,7 @@ public class DonationRequestActivity extends AppCompatActivity implements View.O
         addItemsToSpinner();
         addItemsToSpinner2();
     }
-    private boolean isValidName(String name){
-        if(name.equals("")){
-            mRecipientName.setError("enter a name");
-            return false;
-        }
-        return true;
-    }
+
     private boolean isValidHospital(String hospital){
         if(hospital.equals("")){
             mhospitalName.setError("enter a valid hospital");
@@ -53,13 +47,7 @@ public class DonationRequestActivity extends AppCompatActivity implements View.O
         }
         return true;
     }
-    private boolean isValidContact(String contact){
-        if(contact.equals("")){
-            mRecipientContact.setError("enter a valid number");
-            return false;
-        }
-        return true;
-    }
+
 
     //add items to spinner
     public void addItemsToSpinner(){
@@ -96,20 +84,20 @@ public class DonationRequestActivity extends AppCompatActivity implements View.O
     }
 
     public void makeBloodRequest(){
-        String name=mRecipientName.getText().toString().trim();
+
         String hospital=mhospitalName.getText().toString().trim();
-        String contact=mRecipientContact.getText().toString().trim();
+
         //get details from spinner menu
         String bloodType=String.valueOf(spinnerListView1.getSelectedItem());
         String condition=String.valueOf(spinnerListView2.getSelectedItem());
         //check credentials
-        boolean validName=isValidName(name);
-        boolean validHospital=isValidHospital(hospital);
-        boolean validContact=isValidContact(contact);
 
-        if(!validName||!validContact||!validHospital)return;
+        boolean validHospital=isValidHospital(hospital);
+
+
+        if(!validHospital)return;
         //create new instance
-        Request newRequest=new Request(name,hospital,contact,bloodType,condition);
+        Request newRequest=new Request(hospital,bloodType,condition);
         //push to firebase
         DatabaseReference mRef= FirebaseDatabase
                 .getInstance()

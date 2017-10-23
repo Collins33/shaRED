@@ -47,7 +47,7 @@ public class FirebaseRequestViewHolder extends RecyclerView.ViewHolder implement
                 int itemPosition = getLayoutPosition();
 
                 Intent intent = new Intent(context, DonationDetailActivity.class);
-                intent.putExtra("position", itemPosition + "");
+                intent.putExtra("position", itemPosition);
                 intent.putExtra("request", Parcels.wrap(request));
 
                 context.startActivity(intent);
@@ -59,12 +59,12 @@ public class FirebaseRequestViewHolder extends RecyclerView.ViewHolder implement
         });
     }
     public void bindRequest(Request request){
-        TextView name=(TextView) itemView.findViewById(R.id.nameText);
+       
         TextView hospital=(TextView) itemView.findViewById(R.id.hospitalText);
         TextView bloodType=(TextView) itemView.findViewById(R.id.bloodtypeText);
         //bind view to object
-        name.setText(request.getName());
+
         hospital.setText(request.getHospital());
-        bloodType.setText(request.getContact());
+        bloodType.setText(request.getBloodtype());
     }
 }
