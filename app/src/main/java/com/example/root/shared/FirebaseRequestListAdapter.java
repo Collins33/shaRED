@@ -15,10 +15,10 @@ public class FirebaseRequestListAdapter extends FirebaseRecyclerAdapter<Request,
     DatabaseReference mRef;
     Context mContext;
     //the constructor
-    public FirebaseRequestListAdapter(Class<Request> mRequest, int modelLayout, Class<FirebaseRequestViewHolder> mViewHolder,Query mRef,Context mContext){
+    public FirebaseRequestListAdapter(Class<Request> mRequest, int modelLayout, Class<FirebaseRequestViewHolder> mViewHolder,Query mRef,Context context){
         super(mRequest,modelLayout,mViewHolder,mRef);
         mRef=mRef.getRef();
-        mContext=mContext;
+        mContext=context;
     }
     //populate the view holder
     @Override

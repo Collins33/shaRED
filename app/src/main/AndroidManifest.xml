@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.root.shared">
-    <uses-permission android:name="android.permission.INTERNET"/>
 
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -13,24 +13,66 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".SigninActivity" />
-        <activity android:name=".ProfileActivity" />
-        <activity android:name=".AppointmentActivity" />
-        <activity android:name=".HospitalsActivity" />
-        <activity android:name=".RequestListActivity" />
-        <activity android:name=".NotificationActivity" />
-        <activity android:name=".MapActivity" />
+        <activity android:name=".CreateProfileActivity" />
+        <activity android:name=".AppointmentActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.root.shared.AppointmentActivity"></meta-data>
+        </activity>
+        <activity android:name=".HospitalsActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.root.shared.HospitalsActivity"></meta-data>
+        </activity>
+        <activity android:name=".RequestListActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.root.shared.RequestListActivity"></meta-data>
+        </activity>
+        <activity android:name=".NotificationActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.root.shared.NotificationActivity"></meta-data>
+        </activity>
+        <activity android:name=".MapActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.root.shared.MapActivity"></meta-data>
+        </activity>
         <activity android:name=".SignupActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
+        <activity android:name=".BloodDriveActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.root.shared.BloodDriveActivity">
 
-        <activity android:name=".BloodDriveActivity" />
-        <activity android:name=".DonationRequestActivity" />
-        <activity android:name=".UserProfileActivity" />
+            </meta-data>
+        </activity>
+        <activity android:name=".DonationRequestActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.root.shared.DonationRequestActivity"></meta-data>
+        </activity>
+        <activity android:name=".UserProfileActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.root.shared.UserProfileActivity">
+
+            </meta-data>
+        </activity>
         <activity android:name=".DashboardActivity"></activity>
+        <activity android:name=".DonationDetailActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.root.shared.DonationDetailActivity">
+
+            </meta-data>
+        </activity>
     </application>
 
 </manifest>

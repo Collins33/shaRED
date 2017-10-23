@@ -1,9 +1,11 @@
 package com.example.root.shared;
 
+import org.parceler.Parcel;
+
 /**
  * Created by root on 10/13/17.
  */
-
+@Parcel
 public class Request {
     private String name;
     private String hospital;

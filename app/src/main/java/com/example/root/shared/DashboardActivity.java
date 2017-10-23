@@ -9,105 +9,76 @@ import android.support.v7.widget.CardView;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.util.TypedValue;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
+
+import com.google.android.gms.auth.api.signin.SignInAccount;
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
 
-public class DashboardActivity extends AppCompatActivity implements  View.OnClickListener{
-    private ArrayList<Category> categories;
-    private RecyclerView recyclerView;
-    private DashboardItemAdapter adapter;
-    private RecyclerView.LayoutManager layoutManager;
-    private CardView mCardView;
+import butterknife.Bind;
+import butterknife.ButterKnife;
 
+public class DashboardActivity extends AppCompatActivity implements View.OnClickListener{
+
+   @Bind(R.id.card_view) CardView mProfile;
+   @Bind(R.id.bloodDrive) CardView mBloodDrive;
+   @Bind(R.id.bloodRequest) CardView mBloodRequest;
+   @Bind(R.id.bloodRequestListCard) CardView mBloodRequestList;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_dashboard_activity);
-
-
-        recyclerView = (RecyclerView) findViewById(R.id.dashboardRecycler);
-        mCardView=(CardView) findViewById(R.id.card_view);
-
-        categories = new ArrayList<>();
-        adapter = new DashboardItemAdapter(this, categories);
-
-        layoutManager = new GridLayoutManager(this, 2);
-        recyclerView.setLayoutManager(layoutManager);
-        recyclerView.setHasFixedSize(true);
-        recyclerView.addItemDecoration(new GridSpacingItemDecoration(2, dpToPx(10),true));
-        recyclerView.setItemAnimator(new DefaultItemAnimator());
-        mCardView.setOnClickListener(this);
-
-
-        categories = new ArrayList<Category>();
-        for(int i=0;i<= 3;i++) {
-           categories.add(new Category(MyData.categorys[i],MyData.images[i]));
-        }
-
-        adapter = new DashboardItemAdapter(getApplicationContext(),categories);
-        recyclerView.setAdapter(adapter);
+        ButterKnife.bind(this);
+        mProfile.setOnClickListener(this);
+        mBloodDrive.setOnClickListener(this);
+        mBloodRequest.setOnClickListener(this);
+        mBloodRequestList.setOnClickListener(this);
     }
     @Override
     public void onClick(View view){
-        if(view == mCardView){
-            getNewIntent();
+        if(view==mProfile){
+            Intent profileIntent=new Intent(getApplicationContext(),UserProfileActivity.class);
+            startActivity(profileIntent);
+        }
+        else if(view==mBloodDrive){
+            Intent bloodDriveIntent=new Intent(getApplicationContext(),BloodDriveActivity.class);
+            startActivity(bloodDriveIntent);
+        }
+        else if(view==mBloodRequest){
+            Intent bloodRequestForm=new Intent(getApplicationContext(),DonationRequestActivity.class);
+            startActivity(bloodRequestForm);
+        }
+        else if(view==mBloodRequestList){
+            Intent BloodRequestListIntent=new Intent(getApplicationContext(),RequestListActivity.class);
+            startActivity(BloodRequestListIntent);
         }
     }
-    public void getNewIntent(){
-        categories = new ArrayList<Category>();
-        for(int i=0;i<= 3;i++) {
-            categories.add(new Category(MyData.categorys[i],MyData.images[i]));
-
-        }
-
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu){
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_main, menu);
+        return super.onCreateOptionsMenu(menu);
     }
-
-
-    public class GridSpacingItemDecoration extends RecyclerView.ItemDecoration {
-
-        private int spanCount;
-        private int spacing;
-        private boolean includeEdge;
-
-        public GridSpacingItemDecoration(int spanCount, int spacing, boolean includeEdge) {
-            this.spanCount = spanCount;
-            this.spacing = spacing;
-            this.includeEdge = includeEdge;
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.action_logout) {
+            logout();
+            return true;
         }
-
-        @Override
-        public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
-            int position = parent.getChildAdapterPosition(view); // item position
-            int column = position % spanCount; // item column
-
-            if (includeEdge) {
-                outRect.left = spacing - column * spacing / spanCount; // spacing - column * ((1f / spanCount) * spacing)
-                outRect.right = (column + 1) * spacing / spanCount; // (column + 1) * ((1f / spanCount) * spacing)
-
-                if (position < spanCount) { // top edge
-                    outRect.top = spacing;
-                }
-                outRect.bottom = spacing; // item bottom
-            } else {
-                outRect.left = column * spacing / spanCount; // column * ((1f / spanCount) * spacing)
-                outRect.right = spacing - (column + 1) * spacing / spanCount; // spacing - (column + 1) * ((1f /    spanCount) * spacing)
-                if (position >= spanCount) {
-                    outRect.top = spacing; // item top
-                }
-            }
-        }
+        return super.onOptionsItemSelected(item);
     }
-
-    /**
-     * Converting dp to pixel
-     */
-    private int dpToPx(int dp) {
-        Resources r = getResources();
-        return Math.round(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, r.getDisplayMetrics()));
+    private void logout() {
+        FirebaseAuth.getInstance().signOut();
+        Intent intent=new Intent(getApplicationContext(), SigninActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
     }
-
 
 }

@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">ShaRED</string>
     <string name="bloodGroup">blood type</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

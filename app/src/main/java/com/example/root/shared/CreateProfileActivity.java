@@ -24,7 +24,7 @@ import java.util.List;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class ProfileActivity extends AppCompatActivity implements View.OnClickListener {
+public class CreateProfileActivity extends AppCompatActivity implements View.OnClickListener {
     @Bind(R.id.submitAccount)
     Button mButton;
     @Bind(R.id.dateOfBirthView)
