@@ -1,14 +1,19 @@
 package com.example.root.shared;
 
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Rect;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.NotificationCompat;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -17,6 +22,11 @@ import android.view.View;
 
 import com.google.android.gms.auth.api.signin.SignInAccount;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
@@ -29,6 +39,7 @@ public class DashboardActivity extends AppCompatActivity implements View.OnClick
    @Bind(R.id.bloodDrive) CardView mBloodDrive;
    @Bind(R.id.bloodRequest) CardView mBloodRequest;
    @Bind(R.id.bloodRequestListCard) CardView mBloodRequestList;
+    private DatabaseReference mRef;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +50,41 @@ public class DashboardActivity extends AppCompatActivity implements View.OnClick
         mBloodDrive.setOnClickListener(this);
         mBloodRequest.setOnClickListener(this);
         mBloodRequestList.setOnClickListener(this);
+    }
+    @Override
+    public void onStart(){
+        super.onStart();
+        onChildAdded();
+    }
+    public void onChildAdded() {
+        mRef= FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_REQUEST);
+        mRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                sendNotification();
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+    }
+    public void sendNotification() {
+        NotificationCompat.Builder mBuilder = (android.support.v7.app.NotificationCompat.Builder) new NotificationCompat.Builder(this)
+                .setSmallIcon(R.drawable.notificationicon)
+                .setContentTitle("Blood Request")
+                .setContentText("Urgent Need For Blood!!");
+
+        Intent resultIntent = new Intent(this, DashboardActivity.class);
+        PendingIntent contentIntent = PendingIntent.getActivity(this, 0, resultIntent,
+                PendingIntent.FLAG_UPDATE_CURRENT);
+        mBuilder.setContentIntent(contentIntent);
+
+        NotificationManager manager = (NotificationManager) this.getSystemService(Context.NOTIFICATION_SERVICE);
+        manager.notify(0, mBuilder.build());
+        Log.v("example", "notification");
     }
     @Override
     public void onClick(View view){

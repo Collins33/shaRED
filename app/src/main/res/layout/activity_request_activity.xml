@@ -5,13 +5,32 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.root.shared.RequestListActivity">
+    <Spinner
+        android:id="@+id/spinnerViewBlood"
+        style="@style/Base.Widget.AppCompat.Spinner.Underlined"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/bloodRequestRecycler"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="400dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
 
     </android.support.v7.widget.RecyclerView>
+
+    <Button
+        android:id="@+id/searchBlood"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:background="@color/primary"
+        android:paddingTop="10dp"
+        android:text="Search blood type"
+        android:layout_below="@+id/spinnerViewBlood"
+        android:layout_centerHorizontal="true" />
 
 
 </RelativeLayout>

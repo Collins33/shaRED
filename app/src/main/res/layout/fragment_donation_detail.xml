@@ -2,78 +2,70 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="com.example.root.shared.DonationDetailFragment">
 
     <!-- TODO: Update blank fragment layout -->
 
+    <android.support.v7.widget.CardView
+        android:id="@+id/card_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@color/cardview_dark_background"
+        app:cardCornerRadius="0dp"
+        app:cardElevation="5dp"
 
-    <LinearLayout
+        app:cardUseCompatPadding="true"
+        android:layout_above="@+id/linearLayout3"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="13dp">
+    <RelativeLayout
         android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
         android:layout_height="300dp"
+        android:orientation="vertical"
+        android:layout_marginBottom="16dp"
+        android:layout_above="@+id/linearLayout3"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="130dp"
-        android:orientation="vertical">
+        android:layout_alignParentStart="true">
 
-        <TextView
-            android:id="@+id/donationName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="COLLINS NJAU"
-            android:textSize="20dp" />
-
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-
-            android:text="HOSPITAL"
-            android:textSize="16dp"/>
 
         <TextView
             android:id="@+id/donationLocation"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
             android:layout_weight="1"
             android:text="nairobi hospital"
-            android:textSize="20dp" />
-
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-
-            android:text="CONDITION OF PATIENT"
-            android:textSize="16dp"/>
+            android:textSize="30dp" />
 
         <TextView
             android:id="@+id/donationCondition"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/donationLocation"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="53dp"
             android:layout_weight="1"
             android:text="critical"
-            android:textSize="20dp" />
-
-        <TextView
-            android:id="@+id/textView6"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-
-            android:text="BLOODTYPE NEEDED"
-            android:textSize="16dp"/>
+            android:textSize="40dp" />
 
         <TextView
             android:id="@+id/donationBloodType"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="67dp"
             android:layout_weight="1"
             android:text="A+"
-            android:textSize="20dp" />
+            android:textSize="40dp" />
 
-    </LinearLayout>
+    </RelativeLayout>
+    </android.support.v7.widget.CardView>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -85,7 +77,7 @@
         android:id="@+id/linearLayout3">
 
         <Button
-            android:id="@+id/button4"
+            android:id="@+id/acceptRequest"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -102,17 +94,6 @@
         android:layout_marginTop="16dp"
         android:text="DONATION DETAILS"
         android:textSize="30dp"/>
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/DonationDetails"
-        android:layout_marginTop="60dp"
-        android:text="NAME OF PATIENT"
-        android:textSize="16dp"/>
 
 
 </RelativeLayout>

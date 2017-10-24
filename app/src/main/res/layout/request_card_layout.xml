@@ -23,15 +23,6 @@
             android:orientation="vertical">
 
 
-            <TextView
-                android:id="@+id/nameText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Collins"
-                android:textSize="20dp"
-                android:textColor="@color/cardview_light_background"
-                android:textAlignment="center"/>
 
             <TextView
                 android:id="@+id/hospitalText"

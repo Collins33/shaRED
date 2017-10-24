@@ -37,7 +37,7 @@
         <activity android:name=".MapActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.root.shared.MapActivity" />
+                android:value="com.example.root.shared.MapActivity"></meta-data>
         </activity>
         <activity android:name=".SignupActivity">
             <intent-filter>
@@ -54,7 +54,7 @@
         <activity android:name=".DonationRequestActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.root.shared.DonationRequestActivity" />
+                android:value="com.example.root.shared.DonationRequestActivity"></meta-data>
         </activity>
         <activity android:name=".UserProfileActivity">
             <meta-data
@@ -65,17 +65,13 @@
         <activity android:name=".DonationDetailActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.root.shared.DonationDetailActivity"></meta-data>
-        </activity>
+                android:value="com.example.root.shared.DonationDetailActivity">
 
-        <service
-            android:name=".MyFirebaseMessagingService"
-            android:enabled="true"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="com.google.firebase.MESSAGING_EVENT" />
-            </intent-filter>
-        </service>
+            </meta-data>
+        </activity>
+        <activity android:name=".ThankyouActivity">
+
+        </activity>
     </application>
 
 </manifest>

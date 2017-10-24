@@ -1,8 +1,12 @@
 package com.example.root.shared;
 
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.support.v7.app.NotificationCompat;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -42,12 +46,13 @@ public class FirebaseRequestViewHolder extends RecyclerView.ViewHolder implement
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     request.add(snapshot.getValue(Request.class));
+
                 }
 
                 int itemPosition = getLayoutPosition();
 
                 Intent intent = new Intent(context, DonationDetailActivity.class);
-                intent.putExtra("position", itemPosition + "");
+                intent.putExtra("position", itemPosition);
                 intent.putExtra("request", Parcels.wrap(request));
 
                 context.startActivity(intent);
@@ -58,13 +63,14 @@ public class FirebaseRequestViewHolder extends RecyclerView.ViewHolder implement
             }
         });
     }
+
     public void bindRequest(Request request){
-        TextView name=(TextView) itemView.findViewById(R.id.nameText);
+       
         TextView hospital=(TextView) itemView.findViewById(R.id.hospitalText);
         TextView bloodType=(TextView) itemView.findViewById(R.id.bloodtypeText);
         //bind view to object
-        name.setText(request.getName());
+
         hospital.setText(request.getHospital());
-        bloodType.setText(request.getContact());
+        bloodType.setText(request.getBloodtype());
     }
 }
