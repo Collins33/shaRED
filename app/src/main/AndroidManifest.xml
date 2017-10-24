@@ -17,27 +17,27 @@
         <activity android:name=".AppointmentActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.root.shared.AppointmentActivity"></meta-data>
+                android:value="com.example.root.shared.AppointmentActivity" />
         </activity>
         <activity android:name=".HospitalsActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.root.shared.HospitalsActivity"></meta-data>
+                android:value="com.example.root.shared.HospitalsActivity" />
         </activity>
         <activity android:name=".RequestListActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.root.shared.RequestListActivity"></meta-data>
+                android:value="com.example.root.shared.RequestListActivity" />
         </activity>
         <activity android:name=".NotificationActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.root.shared.NotificationActivity"></meta-data>
+                android:value="com.example.root.shared.NotificationActivity" />
         </activity>
         <activity android:name=".MapActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.root.shared.MapActivity"></meta-data>
+                android:value="com.example.root.shared.MapActivity" />
         </activity>
         <activity android:name=".SignupActivity">
             <intent-filter>
@@ -49,30 +49,33 @@
         <activity android:name=".BloodDriveActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.root.shared.BloodDriveActivity">
-
-            </meta-data>
+                android:value="com.example.root.shared.BloodDriveActivity"></meta-data>
         </activity>
         <activity android:name=".DonationRequestActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.root.shared.DonationRequestActivity"></meta-data>
+                android:value="com.example.root.shared.DonationRequestActivity" />
         </activity>
         <activity android:name=".UserProfileActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.root.shared.UserProfileActivity">
-
-            </meta-data>
+                android:value="com.example.root.shared.UserProfileActivity"></meta-data>
         </activity>
-        <activity android:name=".DashboardActivity"></activity>
+        <activity android:name=".DashboardActivity" />
         <activity android:name=".DonationDetailActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.root.shared.DonationDetailActivity">
-
-            </meta-data>
+                android:value="com.example.root.shared.DonationDetailActivity"></meta-data>
         </activity>
+
+        <service
+            android:name=".MyFirebaseMessagingService"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>

@@ -131,7 +131,7 @@ public class DonationRequestActivity extends AppCompatActivity implements View.O
                 .setContentTitle("My notification")
                 .setContentText("Hello World!");
 
-        Intent resultIntent = new Intent(this, RequestListActivity.class);
+        Intent resultIntent = new Intent(this, DonationRequestActivity.class);
         PendingIntent contentIntent = PendingIntent.getActivity(this, 0, resultIntent,
                 PendingIntent.FLAG_UPDATE_CURRENT);
         mBuilder.setContentIntent(contentIntent);
