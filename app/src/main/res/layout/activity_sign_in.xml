@@ -43,34 +43,47 @@
             android:textSize="20sp" />
 
 
-        <Button
-            android:id="@+id/LogIn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:background="@color/primary"
-            android:padding="10dp"
-            android:text="Sign in" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-
-            android:textStyle="bold"
-            android:textSize="15sp"
-            android:text="Dont have an account?Sign_up"
-            android:id="@+id/signUpTextView"
-            android:layout_gravity="center_horizontal" />
     </LinearLayout>
 
     <TextView
+        android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="SIGN IN"
+        android:layout_below="@+id/imageView3"
+        android:layout_centerHorizontal="true"
+        android:text="SIGN IN TO SHARED"
         android:textSize="30dp"
-        android:textStyle="bold"
-        android:layout_above="@+id/linearLayout"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        app:srcCompat="@drawable/notification"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:id="@+id/signUpTextView"
+        android:layout_width="wrap_content"
+
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="19dp"
+        android:text="Dont have an account?Sign_up"
+        android:textSize="15sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/LogIn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linearLayout"
+        android:layout_centerHorizontal="true"
+        android:background="@color/primary"
+        android:padding="10dp"
+        android:text="Sign in" />
 
 </RelativeLayout>
