@@ -41,6 +41,7 @@ public class CreateProfileActivity extends AppCompatActivity implements View.OnC
     private SharedPreferences mSharedPreference;
     private SharedPreferences.Editor mEditor;
     private String recentName;
+    DatabaseReference mRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,11 +52,18 @@ public class CreateProfileActivity extends AppCompatActivity implements View.OnC
         addItemsOnSpinner1();
         addItemsOnSpinner2();
         //shared preference
-        mSharedPreference= PreferenceManager.getDefaultSharedPreferences(this);
-        mEditor=mSharedPreference.edit();
+        //mSharedPreference= PreferenceManager.getDefaultSharedPreferences(this);
+        //mEditor=mSharedPreference.edit();
         //check shared preferece
-        recentName=mSharedPreference.getString(Constants.SHAREDPREFERENCE_PROFILE,null);
-        if(recentName != null){
+        //recentName=mSharedPreference.getString(Constants.SHAREDPREFERENCE_PROFILE,null);
+        FirebaseUser user= FirebaseAuth.getInstance().getCurrentUser();
+        String uid=user.getUid();
+
+        mRef=FirebaseDatabase
+                .getInstance()
+                .getReference(Constants.FIREBASE_CHILD_PROFILE)
+                .child(uid);
+        if(mRef != null){
             Intent intent=new Intent(getApplicationContext(),DashboardActivity.class);
             startActivity(intent);
             finish();

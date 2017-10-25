@@ -32,6 +32,7 @@ public class RequestListActivity extends AppCompatActivity implements View.OnCli
         setContentView(R.layout.activity_request_activity);
         addItemsToSpinner();
         ButterKnife.bind(this);
+        fireBaseAdapter();
         mFindBloodType.setOnClickListener(this);
     }
     @Override
@@ -62,6 +63,17 @@ public class RequestListActivity extends AppCompatActivity implements View.OnCli
         mAdapter=new FirebaseRequestListAdapter(Request.class,
                 R.layout.request_card_layout, FirebaseRequestViewHolder.class,
                 query, this);
+        mRecycler.setLayoutManager(new LinearLayoutManager(this));
+        mRecycler.setAdapter(mAdapter);
+        mRecycler.setHasFixedSize(true);
+    }
+    public void fireBaseAdapter(){
+        mRef= FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_REQUEST);
+
+
+        mAdapter=new FirebaseRequestListAdapter(Request.class,
+                R.layout.request_card_layout, FirebaseRequestViewHolder.class,
+                mRef, this);
         mRecycler.setLayoutManager(new LinearLayoutManager(this));
         mRecycler.setAdapter(mAdapter);
         mRecycler.setHasFixedSize(true);
