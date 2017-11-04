@@ -2,9 +2,11 @@ package com.example.root.shared;
 
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Parcel;
 import android.support.v4.app.Fragment;
+import android.telephony.SmsManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,6 +28,7 @@ public class DonationDetailFragment extends Fragment implements View.OnClickList
     @Bind(R.id.donationLocation) TextView mPatientLocation;
     @Bind(R.id.donationCondition) TextView mPatientCondition;
     @Bind(R.id.donationBloodType) TextView mPatientBloodType;
+    @Bind(R.id.contactDetail) TextView mPatientContact;
 
     private Request request;
     //required newInstance()
@@ -63,15 +66,22 @@ public class DonationDetailFragment extends Fragment implements View.OnClickList
         mPatientBloodType.setText(request.getBloodtype());
         mPatientCondition.setText(request.getState());
         mPatientLocation.setText(request.getHospital());
+        mPatientContact.setText(request.getContact());
         return view;
 
     }
     @Override
     public void onClick(View view){
-        Intent newIntent=new Intent(getContext(),ThankyouActivity.class);
-        newIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        startActivity(newIntent);
+        sendSms();
 
+    }
+    public void sendSms(){
+        SmsManager sm = SmsManager.getDefault();
+        String number = mPatientContact.getText().toString();
+        String msg = "hello I have accepted your blood request";
+        sm.sendTextMessage(number, null, msg, null, null);
+        Intent intent=new Intent(getContext(),ThankyouActivity.class);
+        startActivity(intent);
     }
 
 }

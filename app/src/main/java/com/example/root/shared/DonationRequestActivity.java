@@ -22,6 +22,7 @@ import butterknife.ButterKnife;
 public class DonationRequestActivity extends AppCompatActivity implements View.OnClickListener{
 
     @Bind(R.id.hospitalName) EditText mhospitalName;
+    @Bind(R.id.contact) EditText mContact;
 
 
 
@@ -43,6 +44,13 @@ public class DonationRequestActivity extends AppCompatActivity implements View.O
     private boolean isValidHospital(String hospital){
         if(hospital.equals("")){
             mhospitalName.setError("enter a valid hospital");
+            return false;
+        }
+        return true;
+    }
+    private boolean isValidContact(String contact){
+        if(contact.equals("")){
+            mContact.setError("enter valid number to get real time responses");
             return false;
         }
         return true;
@@ -86,6 +94,7 @@ public class DonationRequestActivity extends AppCompatActivity implements View.O
     public void makeBloodRequest(){
 
         String hospital=mhospitalName.getText().toString().trim();
+        String contact=mContact.getText().toString().trim();
 
         //get details from spinner menu
         String bloodType=String.valueOf(spinnerListView1.getSelectedItem());
@@ -93,11 +102,12 @@ public class DonationRequestActivity extends AppCompatActivity implements View.O
         //check credentials
 
         boolean validHospital=isValidHospital(hospital);
+        boolean validContact=isValidContact(contact);
 
 
-        if(!validHospital)return;
+        if(!validHospital||!validContact)return;
         //create new instance
-        Request newRequest=new Request(hospital,bloodType,condition);
+        Request newRequest=new Request(hospital,bloodType,condition,contact);
         //push to firebase
         DatabaseReference mRef= FirebaseDatabase
                 .getInstance()
