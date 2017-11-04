@@ -142,7 +142,7 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
                 if(task.isSuccessful()){
                     //check if authentication was successful
                     Log.d(TAG, "Authentication successful");
-                    Intent intent=new Intent(getApplicationContext(),DashboardActivity.class);
+                    Intent intent=new Intent(getApplicationContext(),CreateProfileActivity.class);
                     startActivity(intent);
                 }
                 else{

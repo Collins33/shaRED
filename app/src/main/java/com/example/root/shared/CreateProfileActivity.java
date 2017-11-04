@@ -38,9 +38,8 @@ public class CreateProfileActivity extends AppCompatActivity implements View.OnC
     @Bind(R.id.nameEditView)
     EditText mName;
     private Spinner spinnerListView1, spinnerListView2;
-    private SharedPreferences mSharedPreference;
-    private SharedPreferences.Editor mEditor;
-    private String recentName;
+
+
     DatabaseReference mRef;
 
     @Override
@@ -63,11 +62,7 @@ public class CreateProfileActivity extends AppCompatActivity implements View.OnC
                 .getInstance()
                 .getReference(Constants.FIREBASE_CHILD_PROFILE)
                 .child(uid);
-        if(mRef != null){
-            Intent intent=new Intent(getApplicationContext(),DashboardActivity.class);
-            startActivity(intent);
-            finish();
-        }
+
     }
 
 
@@ -166,15 +161,13 @@ public class CreateProfileActivity extends AppCompatActivity implements View.OnC
         pushRef.setValue(account);
 
 
-        profileRef.push().setValue(account);
-        addToSharedPreferences(name);
+
+
         Toast.makeText(getApplicationContext(), "profile saved", Toast.LENGTH_LONG).show();
         Intent intent = new Intent(getApplicationContext(), DashboardActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
         finish();
     }
-    private void addToSharedPreferences(String name){
-     mEditor.putString(Constants.SHAREDPREFERENCE_PROFILE,name).apply();
-    }
+
 }

@@ -37,29 +37,25 @@
         <activity android:name=".MapActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.root.shared.MapActivity"></meta-data>
+                android:value="com.example.root.shared.MapActivity" />
         </activity>
         <activity android:name=".SignupActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".BloodDriveActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.root.shared.BloodDriveActivity"></meta-data>
+                android:value="com.example.root.shared.BloodDriveActivity" />
         </activity>
         <activity android:name=".DonationRequestActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.root.shared.DonationRequestActivity"></meta-data>
+                android:value="com.example.root.shared.DonationRequestActivity" />
         </activity>
         <activity android:name=".UserProfileActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.root.shared.UserProfileActivity"></meta-data>
+                android:value="com.example.root.shared.UserProfileActivity" />
         </activity>
         <activity android:name=".DashboardActivity" />
         <activity android:name=".DonationDetailActivity">
@@ -69,8 +65,13 @@
 
             </meta-data>
         </activity>
-        <activity android:name=".ThankyouActivity">
+        <activity android:name=".ThankyouActivity"></activity>
+        <activity android:name=".Registration_Activity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
     </application>
 

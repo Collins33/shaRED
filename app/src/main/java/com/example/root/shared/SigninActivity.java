@@ -1,5 +1,6 @@
 package com.example.root.shared;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -26,6 +27,7 @@ public class SigninActivity extends AppCompatActivity implements View.OnClickLis
     private FirebaseAuth mAuth;
     public static final String TAG = SigninActivity.class.getSimpleName();
     private FirebaseAuth.AuthStateListener mAuthstate;
+    private ProgressDialog mProgressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +37,7 @@ public class SigninActivity extends AppCompatActivity implements View.OnClickLis
         mRegisterTextView.setOnClickListener(this);
         mAuth=FirebaseAuth.getInstance();
         mLogInButton.setOnClickListener(this);
+        createProgressDialogue();
         mAuthstate=new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
@@ -47,6 +50,13 @@ public class SigninActivity extends AppCompatActivity implements View.OnClickLis
                 }
             }
         };
+    }
+    private void createProgressDialogue(){
+        mProgressDialog=new ProgressDialog(this);
+        mProgressDialog.setTitle("LOGGING INTO SHARED");
+        mProgressDialog.setMessage("thank you for saving a life");
+        mProgressDialog.setCancelable(false);
+
     }
     @Override
     public void onStart(){
@@ -82,9 +92,11 @@ public class SigninActivity extends AppCompatActivity implements View.OnClickLis
             mPasswordTextView.setError("enter valid password");
             return;
         }
+        mProgressDialog.show();
         mAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
+                mProgressDialog.dismiss();
               if(!task.isSuccessful()){
                   Log.w(TAG, "signInWithEmail", task.getException());
                   Toast.makeText(SigninActivity.this, "Authentication failed.",
