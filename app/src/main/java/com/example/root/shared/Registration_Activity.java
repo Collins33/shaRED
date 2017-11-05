@@ -32,6 +32,8 @@ public class Registration_Activity extends AppCompatActivity implements View.OnC
     @Bind(R.id.button2) Button mButton;
     @Bind(R.id.textName) TextView mText;
     @Bind(R.id.sign_in_button) com.google.android.gms.common.SignInButton mLogin;
+    @Bind(R.id.textView3) TextView mMainText;
+    @Bind(R.id.textView4) TextView mMainText2;
     private static final String TAG = "SignInActivity";
     private static final int RC_SIGN_IN = 0 ;
     private FirebaseAuth mAuth;
@@ -44,6 +46,12 @@ public class Registration_Activity extends AppCompatActivity implements View.OnC
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration_);
         ButterKnife.bind(this);
+        //set fonts
+        Typeface droid=Typeface.createFromAsset(getAssets(),"fonts/Droid.ttf");
+        mText.setTypeface(droid);
+        mMainText.setTypeface(droid);
+        mMainText2.setTypeface(droid);
+
         mButton.setOnClickListener(this);
         mLogin.setOnClickListener(this);
         //configure google-sign in to get user data

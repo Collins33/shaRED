@@ -78,7 +78,7 @@ public class DonationDetailFragment extends Fragment implements View.OnClickList
     public void sendSms(){
         SmsManager sm = SmsManager.getDefault();
         String number = mPatientContact.getText().toString();
-        String msg = "hello I have accepted your blood request";
+        String msg = "Hello I have accepted your blood request";
         sm.sendTextMessage(number, null, msg, null, null);
         Intent intent=new Intent(getContext(),ThankyouActivity.class);
         startActivity(intent);
