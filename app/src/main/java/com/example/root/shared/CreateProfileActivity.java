@@ -62,6 +62,14 @@ public class CreateProfileActivity extends AppCompatActivity implements View.OnC
                 .getInstance()
                 .getReference(Constants.FIREBASE_CHILD_PROFILE)
                 .child(uid);
+        if( mRef == null){
+            Toast.makeText(getApplicationContext(), "CREATE YOUR PROFILE", Toast.LENGTH_LONG).show();
+        }
+        else{
+            Intent intent=new Intent(getApplicationContext(),DashboardActivity.class);
+            startActivity(intent);
+            finish();
+        }
 
     }
 
