@@ -68,7 +68,9 @@
 
             </meta-data>
         </activity>
-        <activity android:name=".ThankyouActivity"></activity>
+        <activity android:name=".ThankyouActivity">
+
+        </activity>
         <activity android:name=".Registration_Activity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -139,8 +139,7 @@ public class CreateProfileActivity extends AppCompatActivity implements View.OnC
     public void saveProfile() {
         //grab the currently authenticated user
         //get their id
-        FirebaseUser user=FirebaseAuth.getInstance().getCurrentUser();
-        String uid=user.getUid();
+
 
         String name = mName.getText().toString().trim();
         String dateOfBirth = mBithday.getText().toString().trim();
@@ -149,6 +148,10 @@ public class CreateProfileActivity extends AppCompatActivity implements View.OnC
         String residence = mResidence.getText().toString().trim();
         String email = mEmail.getText().toString().trim();
         Account account = new Account(name, dateOfBirth, sex, bloodType, residence, email);
+
+        FirebaseUser user=FirebaseAuth.getInstance().getCurrentUser();
+        String uid=user.getUid();
+
         DatabaseReference profileRef = FirebaseDatabase
                 .getInstance()
                 .getReference(Constants.FIREBASE_CHILD_PROFILE)

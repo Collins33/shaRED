@@ -79,7 +79,7 @@ public class Registration_Activity extends AppCompatActivity implements View.OnC
 
                 if (user != null) {
                     // User is signed in
-                    Intent intent=new Intent(getApplicationContext(),DashboardActivity.class);
+                    Intent intent=new Intent(getApplicationContext(),CreateProfileActivity.class);
                     startActivity(intent);
                     finish();
 

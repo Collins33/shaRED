@@ -33,8 +33,12 @@ public class UserProfileActivity extends AppCompatActivity {
 
         setUpFirebaseAdapter();
     }
+
     public void setUpFirebaseAdapter(){
-        mRef= FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_PROFILE);
+        FirebaseUser user= FirebaseAuth.getInstance().getCurrentUser();
+        String uid=user.getUid();
+        mRef= FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_PROFILE).child(uid);
+
         mAdapter=new FirebaseProfileAdapter(Account.class,R.layout.my_profile,FirebaseProfileViewHolder.class,mRef,this);
         //set up recyclerview
         mRecycler.setAdapter(mAdapter);
