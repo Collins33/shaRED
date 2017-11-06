@@ -43,7 +43,7 @@ import butterknife.ButterKnife;
         addItemsToSpinner();
         ButterKnife.bind(this);
         mFindBloodType.setOnClickListener(this);
-
+        setUpInitialAdapter();
     }
 
     @Override
@@ -74,6 +74,17 @@ import butterknife.ButterKnife;
         mAdapter=new FirebaseRequestListAdapter(Request.class,
                 R.layout.request_card_layout, FirebaseRequestViewHolder.class,
                 query, this);
+        mRecycler.setLayoutManager(new LinearLayoutManager(this));
+        mRecycler.setAdapter(mAdapter);
+        mRecycler.setHasFixedSize(true);
+    }
+    public void setUpInitialAdapter(){
+        mRef= FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_REQUEST);
+
+
+        mAdapter=new FirebaseRequestListAdapter(Request.class,
+                R.layout.request_card_layout, FirebaseRequestViewHolder.class,
+                mRef, this);
         mRecycler.setLayoutManager(new LinearLayoutManager(this));
         mRecycler.setAdapter(mAdapter);
         mRecycler.setHasFixedSize(true);

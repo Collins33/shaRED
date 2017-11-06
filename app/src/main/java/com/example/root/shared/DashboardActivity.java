@@ -77,7 +77,7 @@ public class DashboardActivity extends AppCompatActivity implements View.OnClick
                 .setContentTitle("Blood Request")
                 .setContentText("Urgent Need For Blood!!");
 
-        Intent resultIntent = new Intent(this, DashboardActivity.class);
+        Intent resultIntent = new Intent(this, RequestListActivity.class);
         PendingIntent contentIntent = PendingIntent.getActivity(this, 0, resultIntent,
                 PendingIntent.FLAG_UPDATE_CURRENT);
         mBuilder.setContentIntent(contentIntent);
