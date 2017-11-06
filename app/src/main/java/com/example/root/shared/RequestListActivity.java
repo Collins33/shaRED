@@ -1,17 +1,27 @@
 package com.example.root.shared;
 
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.NotificationCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,7 +29,7 @@ import java.util.List;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class RequestListActivity extends AppCompatActivity implements View.OnClickListener{
+  public class RequestListActivity extends AppCompatActivity implements View.OnClickListener{
     private DatabaseReference mRef;
     private FirebaseRequestListAdapter mAdapter;
     @Bind(R.id.bloodRequestRecycler) RecyclerView mRecycler;
@@ -32,9 +42,10 @@ public class RequestListActivity extends AppCompatActivity implements View.OnCli
         setContentView(R.layout.activity_request_activity);
         addItemsToSpinner();
         ButterKnife.bind(this);
-        fireBaseAdapter();
         mFindBloodType.setOnClickListener(this);
+        setUpInitialAdapter();
     }
+
     @Override
     public void onClick(View view){
         setUpFirebaseAdapter();
@@ -67,7 +78,7 @@ public class RequestListActivity extends AppCompatActivity implements View.OnCli
         mRecycler.setAdapter(mAdapter);
         mRecycler.setHasFixedSize(true);
     }
-    public void fireBaseAdapter(){
+    public void setUpInitialAdapter(){
         mRef= FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_REQUEST);
 
 
@@ -79,4 +90,4 @@ public class RequestListActivity extends AppCompatActivity implements View.OnCli
         mRecycler.setHasFixedSize(true);
     }
 
-}
+  }

@@ -8,6 +8,6 @@ public class BloodDriveActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_blood_drive);
+        setContentView(R.layout.notification);
     }
 }
