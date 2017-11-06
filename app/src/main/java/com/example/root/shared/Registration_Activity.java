@@ -103,8 +103,6 @@ public class Registration_Activity extends AppCompatActivity implements View.OnC
     private void signUp(){
         Intent signInIntent = Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClient);
         startActivityForResult(signInIntent, RC_SIGN_IN);
-
-
     }
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
