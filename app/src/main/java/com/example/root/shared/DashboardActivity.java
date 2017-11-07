@@ -93,7 +93,7 @@ public class DashboardActivity extends AppCompatActivity implements View.OnClick
             startActivity(profileIntent);
         }
         else if(view==mBloodDrive){
-            Intent bloodDriveIntent=new Intent(getApplicationContext(),BloodDriveActivity.class);
+            Intent bloodDriveIntent=new Intent(getApplicationContext(),BloodDrives.class);
             startActivity(bloodDriveIntent);
         }
         else if(view==mBloodRequest){
