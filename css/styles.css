@@ -1,0 +1,53 @@
+body {
+    background: #3f3838;
+    color: #f44242;
+    font-family: 'Dosis', sans-serif;
+}
+
+#index {
+    height: 100vh;
+}
+
+.heading {
+    font-family: 'Slabo 27px', serif;
+}
+
+#index-header {
+    padding-top: 50px;
+    font-size: 5em;
+    margin-bottom: 50px;
+    color: #ffffff;
+}
+
+#navigation {
+    padding-top: 10px;
+}
+
+#navigation > a {
+    font-size: 1.5em;
+    text-decoration: none;
+    color: #f44242;
+}
+
+#navigation > a:hover {
+    color: #ffffff;
+}
+
+#hospitals, #types, #condition {
+    font-weight: 500;
+    font-size: 1.2em;
+    height: 50px;
+    border: none;
+    border-radius: 0px;
+}
+
+#request {
+    font-size: 1.4em;
+    height: 50px;
+    color: #ffffff;
+    background-color: #f44242;
+    width: 80%;
+    border-radius: 0px;
+    border-color: #f44242;
+    margin-top: 20px;
+}

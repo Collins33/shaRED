@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Dosis|Slabo+27px" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-3"></div>
+            <div class="col-sm-6">
+                <h1 class="text-center heading" id="index-header">shaRED-Hospital</h1>
+                <h3 class="text-center heading">Make Blood Donation Request</h3>
+                <div class="text-center">
+                    <form>
+                        <div class="form-group">
+                            <label for="hospitals" class="heading">Select Hospital:</label>
+                            <select class="form-control" id="hospitals">
+                                <option>Mbagathi District Hospital</option>
+                                <option>Aga khan Hospital</option>
+                                <option>Avenue Hospital</option>
+                                <option>Guru Nanak Hospital</option>
+                                <option>Gertrude's Children's Hospital, Muthaiga</option>
+                                <option>Gertrude's Children's Hospital, Lavington</option>
+                                <option>Karen Hospital</option>
+                                <option>Kenyatta National Hospital</option>
+                                <option>Metropolitan Hospital</option>
+                                <option>Nairobi Hospital</option>
+                                <option>Bliss GVS Healthcare Embakasi</option>
+                                <option>Coptic Hospital</option>
+                                <option>Nairobi Women's Hospital</option>
+                                <option>MP Shah Hospital</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="types" class="heading">Select Blood Type:</label>
+                            <select class="form-control" id="types">
+                                <option>A+</option>
+                                <option>A-</option>
+                                <option>B+</option>
+                                <option>B-</option>
+                                <option>AB+</option>
+                                <option>AB-</option>
+                                <option>O+</option>
+                                <option>O-</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="condition" class="heading">Select Condition:</label>
+                            <select class="form-control" id="condition">
+                                <option>Critical</option>
+                                <option>Non-Critical</option>
+                            </select>
+                        </div>
+                        <button type="button" class="btn btn-default" id="request">Submit Request</button>
+                    </form>
+                </div>
+            </div>
+            <div class="col-sm-3"></div>
+
+            <nav class="navbar navbar-inverse navbar-fixed-bottom">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-sm-4"></div>
+                        <div class="col-sm-4">
+                            <div class="text-center" id="navigation">
+                                <a href="index.html">HOME</a>
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                <a href="hospitals.html">REQUEST</a>
+                            </div>
+                        </div>
+                        <div class="col-sm-4"></div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.6.1/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyAR_yzCQtVOmF7PjU875qqKwzDqzw2r6U8",
+            authDomain: "shared-19d9f.firebaseapp.com",
+            databaseURL: "https://shared-19d9f.firebaseio.com",
+            projectId: "shared-19d9f",
+            storageBucket: "shared-19d9f.appspot.com",
+            messagingSenderId: "476578551556"
+          };
+          firebase.initializeApp(config);
+
+        $("#request").click(function () {
+            var hospital = $("#hospitals").val();
+            var type = $("#types").val();
+            var condition = $("#condition").val();
+
+            // get current date
+            var day = new Date().getDate();
+            var month = new Date().getMonth() + 1;
+            var year = new Date().getFullYear();
+
+            // get current time
+            var hour = new Date().getHours();
+            var minute = new Date().getMinutes();
+            var second = new Date().getSeconds();
+
+            var contact = "0708352975";
+
+            var time = day + month + year + hour + minute + second;
+
+            makeRequest(time, hospital, type, condition, contact);
+        });
+
+        function makeRequest(mTime, mHospital, mType, mCondition, mContact) {
+            firebase.database().ref('request/' + mTime).set({
+                bloodtype: mType,
+                contact: mContact,
+                hospital: mHospital,
+                state: mCondition
+            });
+            alert("Request Successfully Sent");
+        }
+    </script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
