@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/card_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@color/cardview_dark_background"
+        app:cardCornerRadius="0dp"
+        app:cardElevation="5dp"
+
+        app:cardUseCompatPadding="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/primary"
+            android:orientation="vertical">
+
+
+
+            <TextView
+                android:id="@+id/hospitalText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Nairobi Hospital"
+                android:textSize="20dp"
+                android:textColor="@color/cardview_light_background"
+                android:textAlignment="center"/>
+
+            <TextView
+                android:id="@+id/bloodtypeText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="BLOOD TYPE A+"
+                android:textSize="20dp"
+                android:textColor="@color/cardview_light_background"
+                android:textAlignment="center"/>
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+</LinearLayout>

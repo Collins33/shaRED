@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.root.shared">
-    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.SEND_SMS"></uses-permission>
+
+    <!--
+         The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
+         Google Maps Android API v2, but you must specify either coarse or fine
+         location permissions for the 'MyLocation' functionality. 
+    -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -10,22 +20,64 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".SigninActivity" />
+        <activity android:name=".CreateProfileActivity" />
+        <activity android:name=".AppointmentActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.root.shared.AppointmentActivity" />
+        </activity>
+        <activity android:name=".HospitalsActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.root.shared.HospitalsActivity" />
+        </activity>
+        <activity android:name=".RequestListActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.root.shared.RequestListActivity" />
+        </activity>
+        <activity android:name=".NotificationActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.root.shared.NotificationActivity" />
+        </activity>
+        <activity android:name=".MapActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.root.shared.MapActivity" />
+        </activity>
+        <activity android:name=".SignupActivity"></activity>
+        <activity android:name=".BloodDriveActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.root.shared.BloodDriveActivity" />
+        </activity>
+        <activity android:name=".DonationRequestActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.root.shared.DonationRequestActivity" />
+        </activity>
+        <activity android:name=".UserProfileActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.root.shared.UserProfileActivity" />
+        </activity>
+        <activity android:name=".DashboardActivity" />
+        <activity android:name=".DonationDetailActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.root.shared.DonationDetailActivity"></meta-data>
+        </activity>
+        <activity android:name=".ThankyouActivity"></activity>
+        <activity android:name=".Registration_Activity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Sign_up" />
-        <activity android:name=".Sign_in" />
-        <activity android:name=".Profile_activity" />
-        <activity android:name=".Dashboard_activity" />
-        <activity android:name=".Appointment_activity" />
-        <activity android:name=".Hospitals_activity" />
-        <activity android:name=".Request_activity" />
-        <activity android:name=".Notification_activity" />
-        <activity android:name=".Map_activity"></activity>
+
     </application>
 
 </manifest>
