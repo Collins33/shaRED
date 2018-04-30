@@ -4,7 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.root.shared.SignupActivity">
+
+
+    tools:context="com.example.root.shared.Sign_up">
+
 
 
     <LinearLayout
@@ -76,17 +79,21 @@
             android:id="@+id/createUserButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+
             android:layout_marginTop="15dp"
             android:background="@color/primary"
             android:padding="10dp"
             android:text="Sign up"
             />
 
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
+
             android:textColor="@color/primary"
+
             android:textStyle="bold"
             android:textSize="15sp"
             android:text="Already have an account? Log in here!"
